@@ -70,28 +70,67 @@ const AddExpense = () => {
 
   return (
     <main className="main-content">
-      <div className="card">
+      <div className="card form-card">
         <h2>Add Expense</h2>
-        <input className="input" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
-        <input className="input" placeholder="Amount" type="number" value={amount} onChange={(e) => setAmount(e.target.value)} />
-        <select className="input" value={category} onChange={(e) => setCategory(e.target.value)}>
-          {DEFAULT_CATEGORIES.map((c) => (
-            <option key={c}>{c}</option>
-          ))}
-        </select>
-        <input className="input" type="date" value={date} onChange={(e) => setDate(e.target.value)} />
-        <div>
-          <button className="btn btn-primary" onClick={onSave}>
-            Add
-          </button>
-          <button className="btn btn-secondary" onClick={() => navigate("/expenses")}>
-            Cancel
-          </button>
-        </div>
+        <form className="form-container" onSubmit={(e) => e.preventDefault()}>
+          <label>
+            Name:
+            <input
+              className="input"
+              placeholder="Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </label>
+
+          <label>
+            Amount:
+            <input
+              className="input"
+              placeholder="Amount"
+              type="number"
+              value={amount}
+              onChange={(e) => setAmount(e.target.value)}
+            />
+          </label>
+
+          <label>
+            Category:
+            <select
+              className="input"
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+            >
+              {DEFAULT_CATEGORIES.map((c) => (
+                <option key={c}>{c}</option>
+              ))}
+            </select>
+          </label>
+
+          <label>
+            Date:
+            <input
+              className="input"
+              type="date"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+            />
+          </label>
+
+          <div className="btn-container">
+            <button className="btn btn-primary" onClick={onSave}>
+              Add
+            </button>
+            <button className="btn btn-secondary" onClick={() => navigate("/expenses")}>
+              Cancel
+            </button>
+          </div>
+        </form>
       </div>
     </main>
   );
 };
+
 
 // ---------------- EXPENSES LIST PAGE ----------------
 const Expenses = () => {
