@@ -6,7 +6,7 @@
   font-family: Arial, sans-serif;
 }
 
-/* ---------- SIDEBAR ---------- */
+/* ---------- SIDEBAR (Desktop) ---------- */
 .sidebar {
   width: 220px;
   background: linear-gradient(180deg, #a78bfa, #6366f1);
@@ -53,6 +53,7 @@
   align-items: flex-start;
 }
 
+/* ---------- CARD CONTAINER ---------- */
 .card {
   width: 100%;
   max-width: 500px;
@@ -62,12 +63,12 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* ---------- INPUT + FORM STYLING ---------- */
+/* ---------- INPUTS & FORMS ---------- */
 form,
 .form-container {
   display: flex;
   flex-direction: column;
-  align-items: flex-end; /* Right align all inputs and buttons */
+  align-items: flex-start; /* LEFT alignment for all fields */
   width: 100%;
   gap: 12px;
 }
@@ -75,8 +76,8 @@ form,
 label {
   display: flex;
   flex-direction: column;
-  align-items: flex-end; /* Align label text and input right */
-  text-align: right;
+  align-items: flex-start; /* Left align labels */
+  text-align: left;
   width: 100%;
   font-weight: 600;
   color: #333;
@@ -95,7 +96,7 @@ label {
 /* ---------- BUTTONS ---------- */
 .btn-container {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start; /* Left aligned buttons */
   gap: 10px;
   width: 100%;
 }
@@ -150,9 +151,9 @@ label {
   cursor: pointer;
 }
 
-/* ---------- MOBILE RESPONSIVE ---------- */
+/* ---------- RESPONSIVE DESIGN ---------- */
 @media (max-width: 768px) {
-  /* Layout stacks vertically */
+  /* Stack layout vertically */
   .app-container {
     flex-direction: column;
   }
@@ -175,7 +176,7 @@ label {
     gap: 15px;
   }
 
-  /* Main content adjusts */
+  /* Main content layout */
   .main-content {
     padding: 15px;
     align-items: center;
@@ -186,44 +187,52 @@ label {
     padding: 20px;
   }
 
-  /* Inputs and buttons maintain right alignment */
+  /* Ensure inputs and buttons stay left-aligned */
   .form-container,
   form {
-    align-items: flex-end;
+    align-items: flex-start;
   }
 
   label {
-    align-items: flex-end;
-    text-align: right;
+    align-items: flex-start;
+    text-align: left;
   }
 
   .input {
     width: 100%;
-    max-width: 280px;
+    max-width: 100%;
   }
 
   .btn-container {
-    justify-content: flex-end;
+    justify-content: flex-start;
   }
 }
 
-/* ---------- VERY SMALL MOBILE ---------- */
+/* ---------- SMALL MOBILE SCREENS ---------- */
 @media (max-width: 480px) {
   .sidebar {
     flex-wrap: wrap;
     gap: 5px;
+    font-size: 14px;
   }
 
   .input {
-    max-width: 100%;
+    width: 100%;
   }
 
   label {
-    text-align: right;
-    align-items: flex-end;
+    text-align: left;
+    align-items: flex-start;
   }
 
   .btn-container {
-    justify-content: flex-end;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .btn {
+    width: auto;
   }
 }
